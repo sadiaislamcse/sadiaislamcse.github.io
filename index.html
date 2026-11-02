@@ -5,151 +5,316 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sadia Islam | AI Engineer</title>
 <meta name="description" content="Sadia Islam, AI engineer in Dhaka. I build Python AI agents that automate CRM updates, research and social media posting.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fafaf9;--card:#fff;--text:#1c1917;--muted:#57534e;--line:#e7e5e4;--accent:#0f766e;--chip:#f0fdfa}
-@media (prefers-color-scheme:dark){:root{--bg:#0c0a09;--card:#1c1917;--text:#f5f5f4;--muted:#a8a29e;--line:#292524;--accent:#2dd4bf;--chip:#042f2e}}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-.wrap{max-width:860px;margin:0 auto;padding:0 16px}
-nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:1}
-nav .wrap{display:flex;gap:18px;padding-top:12px;padding-bottom:12px;overflow-x:auto;font-size:14px}
-nav a{color:var(--muted);text-decoration:none;white-space:nowrap}nav a:hover{color:var(--accent)}
-a{color:var(--accent)}
-header{padding:64px 0 40px}
-h1{font-size:clamp(32px,6vw,44px);margin:0;line-height:1.15}
-.role{color:var(--accent);font-weight:600;margin:8px 0 16px}
-.lead{font-size:18px;color:var(--muted);max-width:640px}
-.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
-.btn{padding:10px 18px;border-radius:8px;border:1px solid var(--line);text-decoration:none;color:var(--text);font-weight:500;font-size:15px}
-.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}
-section{padding:36px 0;border-top:1px solid var(--line)}
-h2{font-size:22px;margin:0 0 20px}
-h3{font-size:17px;margin:0 0 6px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:14px}
-.card p,.card ul{margin:6px 0;color:var(--muted)}
-.card ul{padding-left:20px}
-.meta{font-size:14px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 12px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
-.grid .card{margin:0}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
-.chips span{background:var(--chip);color:var(--accent);font-size:12.5px;padding:3px 9px;border-radius:999px}
-.stat{font-weight:600;color:var(--text)}
-dl{display:grid;grid-template-columns:170px 1fr;gap:10px 16px;margin:0}
-dt{font-weight:600}dd{margin:0;color:var(--muted)}
-@media (max-width:560px){dl{grid-template-columns:1fr}dd{margin-bottom:8px}}
-footer{padding:32px 0 48px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+:root{
+  --bg:#f4f1ea;--bg2:#ebe6db;--ink:#16140f;--muted:#6b6558;--line:#d9d2c3;
+  --accent:#c2410c;--accent-soft:#c2410c1a;--term:#16140f;--term-ink:#e8e2d4;--ok:#4d7c0f;
+  --serif:"Instrument Serif",Georgia,serif;--sans:"Inter Tight",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#12110e;--bg2:#1b1915;--ink:#ede8dc;--muted:#958e7e;--line:#2c2924;
+  --accent:#fb923c;--accent-soft:#fb923c1f;--term:#0b0a08;--term-ink:#d9d3c4;--ok:#a3e635;
+}}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;z-index:0;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:64px 64px;mask-image:linear-gradient(to bottom,#000,transparent 70%)}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+.label{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.label b{color:var(--accent);font-weight:500}
+
+/* nav */
+nav{position:sticky;top:0;z-index:5;backdrop-filter:blur(12px);background:color-mix(in srgb,var(--bg) 80%,transparent);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.mark{font:400 24px var(--serif);text-decoration:none}
+.mark i{color:var(--accent)}
+.links{display:flex;gap:28px;font-size:14px}
+.links a{text-decoration:none;color:var(--muted);transition:color .2s}.links a:hover{color:var(--ink)}
+.status{display:flex;align-items:center;gap:8px;font:500 12px var(--mono);color:var(--muted)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 20%,transparent);animation:pulse 2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 7px transparent}}
+@media (max-width:780px){.links{display:none}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;padding:96px 0 80px}
+h1{font:400 clamp(56px,8.5vw,112px)/.92 var(--serif);letter-spacing:-.02em;margin:22px 0 28px}
+h1 em{color:var(--accent)}
+.intro{font-size:20px;color:var(--muted);max-width:520px}
+.intro strong{color:var(--ink);font-weight:500}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border:1px solid var(--ink);border-radius:999px;text-decoration:none;font-weight:500;font-size:15px;transition:all .2s}
+.btn.solid{background:var(--ink);color:var(--bg)}
+.btn:hover{transform:translateY(-2px)}.btn.solid:hover{background:var(--accent);border-color:var(--accent)}
+.btn .arr{transition:transform .2s}.btn:hover .arr{transform:translateX(3px)}
+
+.term{background:var(--term);color:var(--term-ink);border-radius:14px;font:13px/1.75 var(--mono);box-shadow:0 30px 60px -20px #0006;overflow:hidden}
+.term-bar{display:flex;gap:7px;padding:14px 16px;border-bottom:1px solid #ffffff14;align-items:center}
+.term-bar span{width:11px;height:11px;border-radius:50%;background:#ffffff26}
+.term-bar small{margin-left:auto;color:#ffffff59;font-size:11px}
+.term pre{padding:18px 20px 22px;min-height:312px;white-space:pre-wrap;font:inherit}
+.c-dim{color:#ffffff59}.c-ok{color:#a3e635}.c-acc{color:#fb923c}.c-blue{color:#7dd3fc}
+.cursor{display:inline-block;width:8px;height:15px;background:#fb923c;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{padding:30px 24px;border-left:1px solid var(--line)}.stat:first-child{border-left:0;padding-left:0}
+.stat b{display:block;font:400 52px/1 var(--serif);margin-bottom:8px}
+.stat span{font-size:14px;color:var(--muted)}
+
+/* sections */
+section{padding:120px 0 0}
+.head{display:grid;grid-template-columns:240px 1fr;gap:40px;margin-bottom:56px}
+h2{font:400 clamp(38px,5vw,60px)/1.02 var(--serif);letter-spacing:-.01em}
+h2 em{color:var(--accent)}
+
+/* projects */
+.proj{display:grid;grid-template-columns:240px 1fr 280px;gap:40px;padding:40px 0;border-top:1px solid var(--line);transition:background .3s}
+.proj:last-child{border-bottom:1px solid var(--line)}
+.proj .n{font:400 15px var(--mono);color:var(--muted)}
+.proj .n b{display:block;font:400 64px/1 var(--serif);color:var(--line);margin-top:8px;transition:color .3s}
+.proj:hover .n b{color:var(--accent)}
+.proj h3{font:400 32px/1.1 var(--serif);margin-bottom:12px}
+.proj p{color:var(--muted);max-width:520px}
+.proj ul{list-style:none;padding:0;margin-top:14px;font-size:15px}
+.proj li{padding-left:22px;position:relative;margin:6px 0}
+.proj li::before{content:"→";position:absolute;left:0;color:var(--accent)}
+.side{display:flex;flex-direction:column;gap:18px}
+.metric{border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:var(--bg2)}
+.metric b{font:400 34px/1 var(--serif);display:block}
+.metric span{font-size:13px;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font:12px var(--mono);padding:4px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
+.extra{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+.extra div{border:1px dashed var(--line);border-radius:12px;padding:20px;font-size:15px;color:var(--muted)}
+.extra b{display:block;color:var(--ink);font-weight:500;margin-bottom:4px}
+.note{margin-top:20px;font:13px var(--mono);color:var(--muted)}
+
+/* principles */
+.prin{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.prin div{background:var(--bg);padding:30px 26px}
+.prin i{font:400 15px var(--mono);color:var(--accent);font-style:normal}
+.prin h4{font:400 26px/1.15 var(--serif);margin:28px 0 10px}
+.prin p{font-size:15px;color:var(--muted)}
+
+/* research */
+.paper{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end;padding:48px;border-radius:20px;background:var(--ink);color:var(--bg);text-decoration:none;transition:transform .3s}
+.paper:hover{transform:translateY(-4px)}
+.paper h3{font:400 clamp(28px,3.6vw,42px)/1.12 var(--serif);margin:18px 0 16px;max-width:760px}
+.paper p{opacity:.7;max-width:620px}
+.paper .label{color:inherit;opacity:.6}
+.paper .go{width:64px;height:64px;border-radius:50%;background:var(--accent);display:grid;place-items:center;font-size:26px;color:#fff}
+
+/* timeline + skills */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+.tl{border-left:1px solid var(--line);padding-left:28px}
+.job{position:relative;padding-bottom:40px}
+.job::before{content:"";position:absolute;left:-33px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:1px solid var(--accent)}
+.job:first-child::before{background:var(--accent)}
+.job h4{font:400 26px/1.2 var(--serif);margin:8px 0 4px}
+.job .org{color:var(--accent);font-weight:500;font-size:15px}
+.job p{color:var(--muted);font-size:15px;margin-top:10px}
+.sk{border-top:1px solid var(--line);padding:18px 0;display:grid;grid-template-columns:130px 1fr;gap:16px}
+.sk span{font-size:15px;color:var(--muted)}
+
+/* contact */
+.contact{padding:140px 0 60px;text-align:center}
+.contact h2{font-size:clamp(48px,9vw,128px);line-height:.95;margin:24px 0 40px}
+.mail{font:400 clamp(20px,3vw,30px) var(--serif);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:4px}
+.mail:hover{color:var(--accent)}
+.social{display:flex;justify-content:center;gap:28px;margin-top:40px;font:13px var(--mono)}
+.social a{color:var(--muted);text-decoration:none}.social a:hover{color:var(--accent)}
+footer{border-top:1px solid var(--line);padding:24px 0;font:12px var(--mono);color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:960px){
+  .hero{grid-template-columns:1fr;padding:56px 0}
+  .head,.proj{grid-template-columns:1fr;gap:16px}
+  .proj .n b{display:inline;font-size:15px;color:var(--accent);margin-left:6px}
+  .side{flex-direction:row;flex-wrap:wrap}.metric{flex:1;min-width:150px}
+  .prin{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr}.extra{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}.stat:nth-child(3){border-left:0;padding-left:0}.stat:nth-child(n+3){border-top:1px solid var(--line)}
+  .paper{grid-template-columns:1fr;padding:32px}
+}
+@media (max-width:560px){
+  .wrap{padding:0 16px}.prin{grid-template-columns:1fr}.sk{grid-template-columns:1fr;gap:4px}
+  .stat{padding:22px 12px}.stat b{font-size:40px}section{padding-top:88px}
+  .term pre{min-height:280px;font-size:12px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 <nav><div class="wrap">
-<a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#research">Research</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+  <a class="mark" href="#">Sadia <i>Islam</i></a>
+  <div class="links"><a href="#work">Work</a><a href="#approach">Approach</a><a href="#research">Research</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div>
+  <div class="status"><span class="dot"></span>Open to AI roles</div>
 </div></nav>
 
-<main class="wrap">
-<header>
-<h1>Sadia Islam</h1>
-<p class="role">AI Engineer · Agentic AI &amp; Automation · Dhaka, Bangladesh</p>
-<p class="lead">I build AI agents that take over repetitive business work: CRM updates, contact research and social media posting. Python, browsers, APIs and LLMs, built so non-technical teams can run them.</p>
-<div class="btns">
-<a class="btn primary" href="mailto:sadiaislam881278@gmail.com">Email me</a>
-<a class="btn" href="Sadia_Islam_CV.pdf" download>Download CV</a>
-<a class="btn" href="https://www.linkedin.com/in/sadiaislamcse">LinkedIn</a>
-<a class="btn" href="https://github.com/sadiaislamcse">GitHub</a>
+<main>
+<div class="wrap">
+  <header class="hero">
+    <div>
+      <p class="label"><b>●</b>&nbsp; AI Engineer — Dhaka, Bangladesh</p>
+      <h1>I build agents that do the <em>busywork.</em></h1>
+      <p class="intro">Python agents that drive browsers, call APIs and use LLMs to take over <strong>CRM updates, contact research and social posting</strong> — built so the people who run them never need to call me.</p>
+      <div class="cta">
+        <a class="btn solid" href="#work">See the work <span class="arr">→</span></a>
+        <a class="btn" href="Sadia_Islam_CV.pdf" download>Download CV <span class="arr">↓</span></a>
+      </div>
+    </div>
+    <div class="term" aria-label="Example agent run">
+      <div class="term-bar"><span></span><span></span><span></span><small>titlefinder.py</small></div>
+      <pre id="log"></pre>
+    </div>
+  </header>
+
+  <div class="stats reveal">
+    <div class="stat"><b data-to="1460">1,460</b><span>contacts researched by one agent</span></div>
+    <div class="stat"><b data-to="2253">2,253</b><span>contacts enriched with SEO &amp; ratings</span></div>
+    <div class="stat"><b data-to="529">529</b><span>accounts covered end to end</span></div>
+    <div class="stat"><b>1</b><span>peer-reviewed ML paper</span></div>
+  </div>
 </div>
-</header>
 
-<section id="about">
-<h2>About</h2>
-<p>I am an Associate Web Developer at Accord Tech Solutions, where most of my work is AI: Python agents that use browsers, APIs and LLMs to finish tasks people used to do by hand. I hold a B.Sc. in Computer Science and Engineering from Daffodil International University and have a published paper on explainable machine learning.</p>
-<p><b>How I build:</b> one master instruction file per project and one per agent with shared code modules; progress saved after every unit of work so a crash never means starting over; clear commands, plain notifications and a handover guide for whoever runs it.</p>
-</section>
+<section id="work"><div class="wrap">
+  <div class="head reveal"><p class="label"><b>01</b> / Selected work</p><h2>Agents running in <em>production</em>, not in notebooks.</h2></div>
 
-<section id="experience">
-<h2>Experience</h2>
-<div class="card">
-<h3>Associate Web Developer · Accord Tech Solutions</h3>
-<div class="meta"><span>Mirpur, Dhaka · Full-time</span><span>Dec 2025 – Present</span></div>
-<ul>
-<li>Design and deploy agentic AI systems in Python that automate Salesforce and CRM workflows.</li>
-<li>Built a multi-agent CRM system where a main agent runs specialized sub-agents across multiple accounts.</li>
-<li>Built a resumable title and LinkedIn discovery pipeline for <span class="stat">1,460 contacts</span> with confidence-based matching.</li>
-<li>Built the company social media agent (Python + Telegram, Docker, Railway) and a no-code Make.com version.</li>
-</ul>
-</div>
-<div class="card">
-<h3>Digitalization Intern · Dream71 Bangladesh Limited</h3>
-<div class="meta"><span>Agargaon, Dhaka · Full-time</span><span>Jul 2025 – Nov 2025</span></div>
-<ul><li>Digitized and validated official documents for ISPAT (NGOAB, supported by UNDP Bangladesh and the Australian Government).</li></ul>
-</div>
-</section>
+  <article class="proj reveal">
+    <div class="n">Multi-agent<b>01</b></div>
+    <div><h3>Multi-Agent CRM Automation</h3>
+      <p>A main agent reads the day's work from Excel and hands it to specialized sub-agents that update a design-industry CRM across several client accounts.</p>
+      <ul><li>Item-listing and time-billing sub-agents, each with its own instructions</li><li>Shared code modules, one master instruction file</li></ul></div>
+    <div class="side"><div class="metric"><b>2 sub-agents</b><span>one orchestrator, many accounts</span></div>
+      <div class="tags"><span>Python</span><span>Playwright</span><span>openpyxl</span></div></div>
+  </article>
 
-<section id="projects">
-<h2>Projects</h2>
-<p style="color:var(--muted);margin-top:-8px">Most of this work was built for clients, so code is private and details are kept general.</p>
-<div class="grid">
-<div class="card"><h3>Multi-Agent CRM Automation</h3>
-<p>A main agent runs sub-agents for item listing and time billing, reads work from Excel and updates a design-industry CRM across several accounts.</p>
-<div class="chips"><span>Python</span><span>Playwright</span><span>openpyxl</span><span>Multi-agent</span></div></div>
+  <article class="proj reveal">
+    <div class="n">Research agent<b>02</b></div>
+    <div><h3>Salesforce CRM Agent &amp; TitleFinder</h3>
+      <p>Finds active customers, researches each contact and their LinkedIn profile, and writes the results back into Salesforce and the CRM.</p>
+      <ul><li>Attaches to a signed-in browser over CDP and behaves like a person</li><li>Accepts a title match only above a confidence threshold</li><li>Shipped with a handover guide: PDF + copy-ready command page</li></ul></div>
+    <div class="side"><div class="metric"><b>1,460</b><span>contacts · 529 accounts</span></div>
+      <div class="tags"><span>Playwright CDP</span><span>Salesforce API</span><span>Excel</span></div></div>
+  </article>
 
-<div class="card"><h3>Salesforce CRM Agent</h3>
-<p>Finds active customers, researches each contact and their LinkedIn profile, and writes results back to Salesforce. Reuses a signed-in browser session and ships with a client handover guide.</p>
-<div class="chips"><span>Python</span><span>Playwright CDP</span><span>Salesforce API</span></div></div>
+  <article class="proj reveal">
+    <div class="n">Data enrichment<b>03</b></div>
+    <div><h3>CampaignScout</h3>
+      <p>Turns a flat list of staffing-industry contacts into a scored target list: Google rating, review count, SEO score and AEO score per company.</p>
+      <ul><li>Parallel sub-agents with checkpoint and resume</li><li>Command-line controls for partial and repeat runs</li></ul></div>
+    <div class="side"><div class="metric"><b>2,253</b><span>contacts · 925 companies</span></div>
+      <div class="tags"><span>Google Places</span><span>PageSpeed</span><span>CLI</span></div></div>
+  </article>
 
-<div class="card"><h3>SD TitleFinder Agent</h3>
-<p>Finds job titles and LinkedIn URLs for <span class="stat">1,460 contacts at 529 accounts</span>. Accepts a match only above a confidence threshold and resumes after interruptions.</p>
-<div class="chips"><span>Python</span><span>Playwright</span><span>Checkpoint/resume</span></div></div>
+  <article class="proj reveal">
+    <div class="n">Generative AI<b>04</b></div>
+    <div><h3>Social Media AI Agent — twice</h3>
+      <p>First as code: an LLM writes captions, Stability AI makes images, and posts go out on Facebook on their own, steered from a Telegram bot. Then rebuilt in Make.com so non-technical staff could own it.</p>
+      <ul><li>Dockerized, deployed on Railway with GitHub Actions</li><li>No-code version: Sheet approval → Drive media → FB + IG, Telegram alerts</li><li>Media fetched once per run instead of once per branch</li></ul></div>
+    <div class="side"><div class="metric"><b>2 builds</b><span>code + no-code</span></div>
+      <div class="tags"><span>Groq LLM</span><span>Stability AI</span><span>Make.com</span><span>Docker</span></div></div>
+  </article>
 
-<div class="card"><h3>CampaignScout Agent</h3>
-<p>Adds Google rating, review count, SEO and AEO score to <span class="stat">2,253 contacts from 925 companies</span>. Multi-agent, with checkpoint/resume and CLI options.</p>
-<div class="chips"><span>Python</span><span>Google Places API</span><span>PageSpeed Insights</span></div></div>
+  <div class="extra reveal">
+    <div><b>Job board scout</b>Finds companies whose job posts mention specific software.</div>
+    <div><b>Email verifier</b>Bulk verification agent on the Debounce API.</div>
+    <div><b>Product scraper</b>Selenium scraper with retry and timeout handling.</div>
+  </div>
+  <p class="note">// Built for clients — code is private and names are kept general.</p>
+</div></section>
 
-<div class="card"><h3>Social Media AI Agent</h3>
-<p>Writes captions with an LLM, generates images and publishes Facebook posts on its own, controlled from a Telegram bot. Dockerized and deployed on Railway.</p>
-<div class="chips"><span>Groq LLM</span><span>Stability AI</span><span>Graph API</span><span>Docker</span><span>GitHub Actions</span></div></div>
+<section id="approach"><div class="wrap">
+  <div class="head reveal"><p class="label"><b>02</b> / Approach</p><h2>How I build so it <em>keeps working</em> after I leave.</h2></div>
+  <div class="prin reveal">
+    <div><i>01</i><h4>One brief per agent</h4><p>A master instruction file for the project, one per agent, and shared code modules.</p></div>
+    <div><i>02</i><h4>Crash-proof by default</h4><p>Progress is saved after every unit of work. An interruption never means starting over.</p></div>
+    <div><i>03</i><h4>Confident or silent</h4><p>Agents write data only above a confidence threshold. Wrong data is worse than none.</p></div>
+    <div><i>04</i><h4>Written for the operator</h4><p>Clear commands, plain notifications and a handover guide for whoever runs it next.</p></div>
+  </div>
+</div></section>
 
-<div class="card"><h3>Social Media Automation (Make.com)</h3>
-<p>No-code rebuild for non-technical staff: approved Google Sheet rows pull media from Drive and post to Facebook and Instagram, with Telegram alerts. Edited via the Make.com API.</p>
-<div class="chips"><span>Make.com</span><span>Google Sheets</span><span>Instagram API</span><span>Telegram</span></div></div>
-</div>
-<div class="card" style="margin-top:14px"><h3>Smaller tools</h3>
-<ul><li>Job board agent that finds companies mentioning specific software in their job postings.</li>
-<li>Email verification agent using the Debounce API.</li>
-<li>Product scraper with retry and timeout handling (Selenium).</li></ul></div>
-</section>
+<section id="research"><div class="wrap">
+  <div class="head reveal"><p class="label"><b>03</b> / Research</p><h2>Peer-reviewed <em>explainable</em> ML.</h2></div>
+  <a class="paper reveal" href="https://doi.org/10.1016/j.jpi.2024.100398" target="_blank" rel="noopener">
+    <div><p class="label">Journal of Pathology Informatics · Sep 2024</p>
+      <h3>A Precise Machine Learning Model: Detecting Cervical Cancer Using Feature Selection and Explainable AI</h3>
+      <p>A feature-selected model that classifies cervical cancer risk, with SHAP explaining every prediction.</p></div>
+    <span class="go">↗</span>
+  </a>
+</div></section>
 
-<section id="research">
-<h2>Research</h2>
-<div class="card">
-<h3><a href="https://doi.org/10.1016/j.jpi.2024.100398">A Precise Machine Learning Model: Detecting Cervical Cancer Using Feature Selection and Explainable AI</a></h3>
-<div class="meta"><span>Journal of Pathology Informatics</span><span>September 2024</span></div>
-<p>Built a feature-selected model to classify cervical cancer risk and used SHAP to explain its predictions.</p>
-</div>
-</section>
+<section id="experience"><div class="wrap">
+  <div class="two">
+    <div class="reveal">
+      <p class="label"><b>04</b> / Experience</p><h2 style="margin:20px 0 40px">Where I've <em>worked</em>.</h2>
+      <div class="tl">
+        <div class="job"><p class="label">Dec 2025 — Present</p><h4>Associate Web Developer</h4><p class="org">Accord Tech Solutions</p>
+          <p>Design and deploy agentic AI systems that automate Salesforce and CRM workflows for internal and client use.</p></div>
+        <div class="job"><p class="label">Jul — Nov 2025</p><h4>Digitalization Intern</h4><p class="org">Dream71 Bangladesh</p>
+          <p>Digitized and validated official records for ISPAT (NGOAB, with UNDP Bangladesh and the Australian Government).</p></div>
+        <div class="job"><p class="label">2021 — 2025</p><h4>B.Sc. Computer Science &amp; Engineering</h4><p class="org">Daffodil International University</p>
+          <p>CGPA 3.45 / 4.00 · Press Secretary, Cyber Security Club.</p></div>
+      </div>
+    </div>
+    <div class="reveal">
+      <p class="label"><b>05</b> / Toolkit</p><h2 style="margin:20px 0 40px">What I <em>reach for</em>.</h2>
+      <div class="sk"><b>Agents</b><span>LLM apps, multi-agent systems, prompt engineering, Claude Code</span></div>
+      <div class="sk"><b>Automation</b><span>Python, Playwright, Selenium, BeautifulSoup, openpyxl, Make.com</span></div>
+      <div class="sk"><b>APIs</b><span>Salesforce, Facebook &amp; Instagram Graph, Telegram Bot, Google Sheets &amp; Drive</span></div>
+      <div class="sk"><b>ML</b><span>PyTorch, TensorFlow, Scikit-learn, Hugging Face, SHAP, NLP</span></div>
+      <div class="sk"><b>Ship</b><span>Docker, GitHub Actions, Railway, VPS over SSH, SQL</span></div>
+    </div>
+  </div>
+</div></section>
 
-<section id="skills">
-<h2>Skills</h2>
-<dl>
-<dt>AI and ML</dt><dd>LLM applications, agentic AI, multi-agent systems, prompt engineering, ML, deep learning, NLP, SHAP</dd>
-<dt>Libraries</dt><dd>TensorFlow, PyTorch, Keras, Scikit-learn, Hugging Face, Pandas, NumPy</dd>
-<dt>Automation and data</dt><dd>Python, SQL, Playwright, Selenium, BeautifulSoup, openpyxl, ETL pipelines, Make.com</dd>
-<dt>APIs</dt><dd>REST, Salesforce, Facebook and Instagram Graph, Telegram Bot, Google Sheets and Drive</dd>
-<dt>Deployment</dt><dd>Docker, Git and GitHub, GitHub Actions, Railway, VPS over SSH</dd>
-<dt>Tools</dt><dd>Claude Code, VS Code, Jupyter</dd>
-</dl>
-</section>
-
-<section id="education">
-<h2>Education</h2>
-<div class="card"><h3>B.Sc. in Computer Science and Engineering</h3>
-<div class="meta"><span>Daffodil International University · CGPA 3.45/4.00</span><span>2021 – 2025</span></div>
-<p>Press Secretary, Cyber Security Club, DIU (Aug 2023 – Mar 2024)</p></div>
-</section>
-
-<section id="contact">
-<h2>Contact</h2>
-<p>Open to AI engineer and AI automation roles. Write to <a href="mailto:sadiaislam881278@gmail.com">sadiaislam881278@gmail.com</a> or find me on <a href="https://www.linkedin.com/in/sadiaislamcse">LinkedIn</a>.</p>
-</section>
+<section id="contact" class="contact"><div class="wrap reveal">
+  <p class="label"><b>06</b> / Contact</p>
+  <h2>Have work that should <em>run itself?</em></h2>
+  <a class="mail" href="mailto:sadiaislam881278@gmail.com">sadiaislam881278@gmail.com</a>
+  <div class="social"><a href="https://www.linkedin.com/in/sadiaislamcse">LinkedIn ↗</a><a href="https://github.com/sadiaislamcse">GitHub ↗</a><a href="Sadia_Islam_CV.pdf" download>CV ↓</a></div>
+</div></section>
 </main>
-<footer><div class="wrap">© 2026 Sadia Islam</div></footer>
+
+<footer><div class="wrap"><span>© 2026 Sadia Islam</span><span>Dhaka · UTC+6</span></div></footer>
+
+<script>
+const lines=[
+ ['c-dim','$ python titlefinder.py --resume'],
+ ['','<span class="c-blue">[load]</span> checkpoint found → row 812 / 1460'],
+ ['','<span class="c-blue">[cdp]</span>  attached to signed-in browser'],
+ ['','<span class="c-acc">[agent]</span> researching contact 813 …'],
+ ['','  title  "Design Director"  conf 0.94 <span class="c-ok">✓ write</span>'],
+ ['','<span class="c-acc">[agent]</span> researching contact 814 …'],
+ ['','  title  "—"                conf 0.41 <span class="c-dim">skip</span>'],
+ ['','<span class="c-acc">[agent]</span> researching contact 815 …'],
+ ['','  title  "Principal"        conf 0.89 <span class="c-ok">✓ write</span>'],
+ ['','<span class="c-blue">[save]</span> checkpoint 815 · excel updated'],
+ ['c-ok','✓ batch done · telegram notified']
+];
+const log=document.getElementById('log');
+const still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+let i=0;
+function next(){
+  if(i<lines.length){const[c,t]=lines[i++];log.insertAdjacentHTML('beforeend',`<span class="${c}">${t}</span>\n`);setTimeout(next,still?0:i===1?900:520)}
+  else log.insertAdjacentHTML('beforeend','<span class="cursor"></span>');
+}
+next();
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');
+  e.target.querySelectorAll('[data-to]').forEach(el=>{const to=+el.dataset.to,t0=performance.now();
+    (function f(t){const p=Math.min((t-t0)/1200,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3))).toLocaleString('en-US');if(p<1&&!still)requestAnimationFrame(f);else el.textContent=to.toLocaleString('en-US')})(t0)});
+  io.unobserve(e.target)}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>
