@@ -33,10 +33,9 @@ header.nav.s{background:#0c0e12e6;backdrop-filter:blur(12px);box-shadow:0 1px 0 
 .hero::before{content:"";position:absolute;width:520px;height:520px;right:-120px;top:60px;background:radial-gradient(circle,#5eead41f,transparent 65%);pointer-events:none}
 .hero::after{content:"";position:absolute;width:420px;height:420px;left:-160px;bottom:0;background:radial-gradient(circle,#fcd34d14,transparent 65%);pointer-events:none}
 .hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center;position:relative;z-index:1;width:100%}
-.hi{font-size:17px;color:var(--a2);font-weight:500}
+.hi{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;color:var(--a1);font-weight:500;border:1px solid #5eead44d;background:#5eead40f;padding:6px 14px;border-radius:999px;margin-bottom:10px}.hi i{width:7px;height:7px;border-radius:50%;background:var(--a1)}
 .hero h1{font-size:clamp(38px,5.4vw,60px);line-height:1.15;margin:6px 0 10px}
-.role{font-size:clamp(20px,2.6vw,28px);font-weight:600;color:var(--white);min-height:1.5em}
-.role .typed{border-right:2px solid var(--a2);padding-right:4px;animation:caret .8s steps(1) infinite}
+.role{display:flex;flex-wrap:wrap;gap:0;font-size:clamp(15px,1.6vw,18px);font-weight:500;color:var(--white);font-family:ui-monospace,Consolas,monospace;letter-spacing:.02em}.role span+span::before{content:"/";color:var(--a2);margin:0 14px}
 @keyframes caret{50%{border-color:transparent}}
 .hero p.intro{max-width:560px;margin:18px 0 30px;color:var(--muted);font-size:16px}
 .btns{display:flex;flex-wrap:wrap;gap:14px}
@@ -53,9 +52,9 @@ body{counter-reset:sec}
 .c-head{display:flex;align-items:center;gap:12px;padding:10px 12px 14px;color:var(--white);font-family:ui-monospace,monospace;font-size:12.5px}
 .c-head .dots{display:flex;gap:6px}.c-head .dots i{width:10px;height:10px;border-radius:50%;background:#2c333f}
 .live{margin-left:auto;display:flex;align-items:center;gap:6px;color:var(--a1);font-size:12px}
-.live i{width:7px;height:7px;border-radius:50%;background:var(--a1);animation:pl 1.6s infinite}
+.live i,.hi i{width:7px;height:7px;border-radius:50%;background:var(--a1);animation:pl 1.6s infinite}
 @keyframes pl{50%{opacity:.3}}
-.c-row{display:grid;grid-template-columns:1fr auto;gap:6px 12px;padding:14px;border-radius:12px;background:var(--bg);border:1px solid var(--line);margin-bottom:8px;text-align:left}
+.c-row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:6px 12px;padding:14px;border-radius:12px;background:var(--bg);border:1px solid var(--line);margin-bottom:8px;text-align:left}
 .c-row b{color:var(--white);font-weight:600;font-size:14px}.c-row small{display:block;color:var(--muted);font-size:12px}
 .st{align-self:start;font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:.05em}
 .st.done{background:#5eead41a;color:var(--a1)}.st.run{background:#fcd34d1a;color:var(--a2)}.st.sch{background:#ffffff0f;color:var(--text)}
@@ -199,9 +198,9 @@ footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;font-si
 
 <section class="hero" id="home"><div class="wrap">
   <div>
-    <p class="hi">Hello, I'm</p>
+    <p class="hi"><i></i>Open to AI engineer roles</p>
     <h1>Sadia <span class="g">Islam</span></h1>
-    <p class="role">I'm an <span class="typed" id="typed">AI Engineer</span></p>
+    <p class="role"><span>AI Engineer</span><span>Agentic Automation</span><span>ML Research</span></p>
     <p class="intro">I build AI agents that take over repetitive business work: CRM updates, contact research and social media posting. Python, browsers, APIs and LLMs, built so non-technical teams can run them.</p>
     <div class="btns">
       <a class="btn p" href="#projects">View My Work</a>
@@ -214,13 +213,13 @@ footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;font-si
       <a href="https://doi.org/10.1016/j.jpi.2024.100398" aria-label="Publication"><svg><use href="#i-doc"/></svg></a>
     </div>
   </div>
-  <div class="console" aria-label="Overview of agents Sadia has built">
-    <div class="c-head"><span class="dots"><i></i><i></i><i></i></span><b>my-agents</b><span class="live"><i></i>live</span></div>
-    <div class="c-row"><div><b>TitleFinder</b><small>LinkedIn + title research</small></div><span class="st done">done</span><div class="bar"><i style="width:100%"></i></div><em>1,460 contacts</em></div>
-    <div class="c-row"><div><b>CampaignScout</b><small>SEO / AEO enrichment</small></div><span class="st done">done</span><div class="bar"><i style="width:100%"></i></div><em>2,253 contacts</em></div>
-    <div class="c-row"><div><b>CRM Orchestrator</b><small>2 sub-agents · multi-account</small></div><span class="st run">running</span><div class="bar"><i class="anim"></i></div><em>billing · listing</em></div>
-    <div class="c-row"><div><b>Social Media Agent</b><small>LLM captions + images</small></div><span class="st sch">scheduled</span><div class="bar"><i style="width:64%"></i></div><em>FB · IG</em></div>
-    <div class="c-foot"><span>✓ checkpoint saved</span><span>resume ready</span></div>
+  <div class="console" aria-label="Agents Sadia has built">
+    <div class="c-head"><span class="dots"><i></i><i></i><i></i></span><b>agents-built</b><span class="live">6+ delivered</span></div>
+    <div class="c-row"><div><b>Multi-Agent CRM Automation</b><small>Main agent + item listing &amp; time billing sub-agents</small></div><span class="st done">delivered</span></div>
+    <div class="c-row"><div><b>SD TitleFinder Agent</b><small>Job titles + LinkedIn URLs · 1,460 contacts</small></div><span class="st done">delivered</span></div>
+    <div class="c-row"><div><b>CampaignScout Agent</b><small>Rating, SEO &amp; AEO scores · 2,253 contacts</small></div><span class="st done">delivered</span></div>
+    <div class="c-row"><div><b>Social Media AI Agent</b><small>LLM captions + images · Docker on Railway</small></div><span class="st done">deployed</span></div>
+    <div class="c-foot"><span>Python · Playwright · LLMs</span><span>client work</span></div>
   </div>
 </div></section>
 
@@ -375,12 +374,6 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 document.querySelectorAll('.r').forEach(el=>io.observe(el));
 document.querySelectorAll('.pj,.sk,.fact,.cc').forEach(c=>{c.classList.add('spot');c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--x',e.clientX-r.left+'px');c.style.setProperty('--y',e.clientY-r.top+'px')})});
 document.querySelectorAll('.sk img').forEach(i=>i.onerror=()=>i.remove());
-const words=['AI Engineer','Agentic AI Developer','Automation Engineer','ML Researcher'],el=document.getElementById('typed');
-if(!matchMedia('(prefers-reduced-motion:reduce)').matches){let w=0,c=words[0].length,del=true;
-  const t=()=>{el.textContent=words[w].slice(0,c);
-    if(del){if(c>0){c--;setTimeout(t,45)}else{del=false;w=(w+1)%words.length;setTimeout(t,250)}}
-    else{if(c<words[w].length){c++;setTimeout(t,85)}else{del=true;setTimeout(t,1800)}}};
-  setTimeout(t,1800);}
 </script>
 </body>
 </html>
